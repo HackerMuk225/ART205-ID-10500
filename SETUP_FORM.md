@@ -9,7 +9,7 @@ To make the contact form fully functional, follow these steps:
 3. Create a new form and get your form ID (e.g., `f/abc123def456`)
 4. Open `contact.html` and replace the form action:
    ```html
-   <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+   <form id="contactForm" action="https://formspree.io/f/myzaldll" method="POST">
    ```
    Replace `YOUR_FORM_ID` with your actual form ID from FormSpree
 5. Save the file and test the form

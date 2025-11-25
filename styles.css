@@ -1,0 +1,145 @@
+/* Portfolio styles: Grid + Flexbox, responsive, animations */
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#6b73ff;
+  --muted:#9aa4b2;
+  --glass: rgba(255,255,255,0.04);
+  --radius:12px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#071023 0%, #071028 70%);color:#e6eef8}
+.container{max-width:1100px;margin:0 auto;padding:28px}
+
+/* Header */
+.site-header{backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-bottom:1px solid rgba(255,255,255,0.02)}
+.site-brand{display:flex;align-items:center;justify-content:space-between;padding:14px 8px}
+.logo{font-weight:800;color:var(--accent);text-decoration:none;font-size:1.25rem}
+.logo .accent{color:#ffd66b}
+.main-nav{display:flex;gap:12px}
+.nav-link{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
+.nav-link:hover,.nav-link.active{background:var(--glass);color:#fff}
+
+/* Hero */
+.hero{padding:48px 0;position:relative;overflow:hidden}
+.hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;background-image:url('assets/tech-bg.svg');background-repeat:no-repeat;background-position:center;background-size:cover;opacity:0.8;z-index:0;filter:brightness(0.9)}
+.hero-grid{display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:center;position:relative;z-index:1}
+.hero-title{font-size:2.1rem;margin:0 0 8px 0;color:#fff;text-shadow:0 6px 18px rgba(107,115,255,0.12)}
+.hero-sub{color:var(--accent);font-weight:600;margin-bottom:12px}
+.lead{color:var(--muted);max-width:48ch}
+.cta-row{margin-top:18px;display:flex;gap:12px}
+.btn{display:inline-block;background:var(--accent);color:#04102a;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;box-shadow:0 8px 20px rgba(107,115,255,0.12)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+.profile-btn{background:linear-gradient(135deg,#1f2937 0%, #0b1220 100%);border-radius:18px;padding:6px;border:0;cursor:pointer}
+.hero-photo-wrap{justify-self:center;display:flex;justify-content:center;align-items:center}
+
+/* Index page - hero profile image 380px */
+.hero-photo-wrap .profile-hover-wrap{position:relative;width:380px;height:380px}
+.hero-photo-wrap .profile-img{width:380px;height:380px;border-radius:18px;display:block;box-shadow:0 28px 60px rgba(0,0,0,0.65);transition:transform .28s ease, opacity .28s ease}
+.hero-photo-wrap .profile-img:hover{transform:scale(1.02)}
+.hero-photo-wrap .profile-hover-info{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(107,115,255,0.15),rgba(0,212,255,0.1));border-radius:18px;padding:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;opacity:0;transition:opacity .28s ease;backdrop-filter:blur(4px);color:#fff}
+.hero-photo-wrap .profile-hover-wrap:hover .profile-img{opacity:0.3}
+.hero-photo-wrap .profile-hover-wrap:hover .profile-hover-info{opacity:1}
+
+/* Profile close button */
+.profile-close-btn{position:absolute;top:8px;right:8px;background:transparent;border:0;color:#fff;font-size:20px;cursor:pointer;z-index:10;padding:4px;transition:transform .2s ease}
+.profile-close-btn:hover{transform:scale(1.2)}
+
+/* Projects */
+.section-title{color:#fff;margin:6px 0 18px 0}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));border-radius:12px;padding:16px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 30px rgba(2,6,23,0.6);transition:transform .28s ease}
+.card:hover{transform:translateY(-6px)}
+.project-media{width:72px;height:72px;border-radius:10px;background-size:cover;display:flex;align-items:center;justify-content:center}
+.project-body h3{margin:0 0 6px 0;color:#fff}
+.project-body p{margin:0;color:var(--muted);font-size:0.95rem}
+.link{color:var(--accent);text-decoration:none;margin-top:8px;display:inline-block}
+
+/* Skills */
+.skills-grid{display:flex;flex-wrap:wrap;gap:12px}
+.skill{background:var(--glass);padding:10px 12px;border-radius:10px;color:var(--muted);font-weight:600}
+
+/* Footer */
+.site-footer{padding:18px 0;border-top:1px solid rgba(255,255,255,0.02);margin-top:48px}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:grid;place-items:center;z-index:60;opacity:0;pointer-events:none;transition:opacity .18s ease}
+.modal.open{opacity:1;pointer-events:auto}
+.modal-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.7), rgba(2,6,23,0.85))}
+.modal-panel{position:relative;z-index:2;background:linear-gradient(180deg,#071229, #0b1220);border-radius:12px;padding:20px;max-width:720px;width:90%;box-shadow:0 30px 80px rgba(0,0,0,0.6)}
+.modal-close{position:absolute;right:12px;top:12px;background:transparent;border:0;color:var(--muted);font-size:20px}
+.modal-inner{display:flex;gap:18px;align-items:flex-start}
+.modal-avatar{width:120px;height:120px;border-radius:12px}
+
+.form-success{background:linear-gradient(90deg,#1f8a4b,#2fd48d);color:#042017;padding:12px;border-radius:10px;margin-bottom:12px;opacity:0;transition:opacity .28s ease}
+.form-success.visible{opacity:1}
+
+/* Section backgrounds */
+.section-with-bg{position:relative;overflow:hidden}
+.section-bg{position:absolute;top:0;left:0;right:0;bottom:0;background-image:url('assets/tech-bg.svg');background-repeat:no-repeat;background-position:center;background-size:cover;opacity:0.5;z-index:0;filter:brightness(0.9);pointer-events:none}
+.about, .contact{position:relative;z-index:1}
+
+/* Profile hover effect - About page */
+.profile-hover-wrap{position:relative;width:200px;height:200px;flex-shrink:0}
+.profile-hover-img{width:200px;height:200px;border-radius:10px;display:block;transition:opacity .28s ease}
+.about .profile-btn{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:6px}
+.about .profile-hover-img{width:100%;height:100%}
+.profile-hover-info{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(107,115,255,0.15),rgba(0,212,255,0.1));border-radius:10px;padding:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;opacity:0;transition:opacity .28s ease;backdrop-filter:blur(4px);color:#fff}
+.profile-hover-wrap:hover .profile-hover-img{opacity:0.3}
+.profile-hover-wrap:hover .profile-hover-info{opacity:1}
+.about .profile-close-btn{position:absolute;top:8px;right:8px;background:transparent;border:0;color:#fff;font-size:16px;cursor:pointer;z-index:10;padding:4px;transition:transform .2s ease}
+.about .profile-close-btn:hover{transform:scale(1.2)}
+
+/* Ensure contact form controls are interactable above decorative background */
+.contact form input,
+.contact form textarea,
+.contact form button,
+.contact form label {
+  position:relative;
+  z-index:2;
+}
+
+/* small screen */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:18px;text-align:center}
+  .hero-photo-wrap .profile-img{width:240px;height:240px}
+  .hero-photo-wrap .profile-hover-wrap{width:240px;height:240px}
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{flex-direction:column;gap:8px;text-align:center}
+}
+
+@media (max-width:560px){
+  .projects-grid{grid-template-columns:1fr}
+  .hero-photo-wrap .profile-img{width:160px;height:160px}
+  .hero-photo-wrap .profile-hover-wrap{width:160px;height:160px}
+}
+
+/* Very small phones */
+@media (max-width:420px){
+  html,body{font-size:14px}
+  .container{padding:16px}
+  .site-brand{padding:10px}
+  .hero{padding:28px 0}
+  .hero-title{font-size:1.6rem}
+  .hero-sub{font-size:0.9rem}
+  .lead{max-width:36ch}
+  .cta-row{flex-direction:column;gap:10px}
+  .btn{width:100%;text-align:center;padding:12px}
+  .btn.ghost{width:100%}
+  .hero-grid{grid-template-columns:1fr;gap:12px}
+  .hero-photo-wrap{margin:0 auto}
+  .hero-bg{background-position:top center;background-size:cover;opacity:0.65}
+  .projects-grid{grid-template-columns:1fr;gap:12px}
+  .section-title{font-size:1.15rem}
+  .profile-hover-info{padding:12px}
+  .modal-panel{width:96%;max-width:420px}
+}
+
+/* small reveal animation */
+.reveal{transform:none;opacity:1;transition:transform .6s ease,opacity .6s ease}
+main section, .projects, .skills{opacity:0;transform:translateY(18px)}
+
+/* utility */
+.no-scroll{overflow:hidden}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — Victor Y. Dolo, III</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-brand container">
+      <a class="logo" href="index.html">VY<span class="accent">D</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Me</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="contact reveal section-with-bg">
+      <div class="section-bg" aria-hidden="true"></div>
+      <h1 class="section-title">Get in touch</h1>
+      <p class="lead">Have a project in mind or a question? Send me a message and I'll get back to you.</p>
+
+      <form id="contactForm" action="https://formspree.io/f/xyzabc123" method="POST" style="margin-top:18px;max-width:720px;">
+        <label>Full name
+          <input required name="name" type="text" placeholder="Your name" style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e6eef8">
+        </label>
+
+        <label style="display:block;margin-top:12px">Email
+          <input required name="email" type="email" placeholder="you@example.com" style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e6eef8">
+        </label>
+
+        <label style="display:block;margin-top:12px">Message
+          <textarea required name="message" rows="6" placeholder="Tell me about the project" style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e6eef8"></textarea>
+        </label>
+
+        <div style="margin-top:12px;display:flex;gap:12px">
+          <button class="btn" type="submit">Send message</button>
+          <button type="reset" class="btn ghost">Reset</button>
+        </div>
+      </form>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="foot-left">&copy; <span id="year">2025</span> Victor Y. Dolo, III</div>
+      <div class="foot-right">Made with <span aria-hidden="true">❤</span> &middot; <a href="https://github.com/HackerMuk225" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+    </div>
+  </footer>
+
+  <!-- Confirmation modal for form submission -->
+  <div id="confirmModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-panel">
+      <button class="modal-close" data-close aria-label="Close">✕</button>
+      <div style="padding:6px 4px">
+        <h3>Are you sure you want to submit this form?</h3>
+        <p class="muted">Please confirm to send your message.</p>
+        <div style="margin-top:14px;display:flex;gap:10px;justify-content:flex-end">
+          <button data-action="cancel" class="btn ghost" data-close>Cancel</button>
+          <button data-action="confirm" class="btn">Yes, submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
